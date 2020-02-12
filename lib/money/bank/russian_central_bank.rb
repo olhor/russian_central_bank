@@ -62,9 +62,7 @@ class Money
       def indirect_rate(from, to)
         dividend = original_get_rate('RUB', to)
         divider = original_get_rate('RUB', from)
-        return nil if dividend.nil? || divider.nil?
-
-        dividend.to_f / divider.to_f
+        dividend && divider && dividend.to_f / divider.to_f
       end
 
       def local_currencies
