@@ -111,12 +111,15 @@ describe Money::Bank::RussianCentralBank do
   end
 
   describe '#indirect_rate' do
-    before do
-      bank.flush_rates
-    end
+    context 'without rates' do
+      before do
+        bank.flush_rates
+      end
 
-    it 'should return nil when indirect rate cannot be calculated' do
-      expect(bank.send(:indirect_rate, 'RUB', 'RUB')).to be_nil
+      it 'should return nil when indirect rate cannot be calculated' do
+        expect(bank.send(:indirect_rate, 'RUB', 'RUB')).to be_nil
+        expect(bank.send(:indirect_rate, 'USD', 'AED')).to be_nil
+      end
     end
   end
 end
