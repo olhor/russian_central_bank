@@ -18,7 +18,7 @@ jobs:
     - name: Set up Ruby 2.1
       uses: actions/setup-ruby@v1
       with:
-        version: 2.1.x
+        ruby-version: 2.1.8
 
     - name: Publish to GPR
       run: |
